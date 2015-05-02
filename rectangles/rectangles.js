@@ -39,23 +39,44 @@
 		},
 
 		move: function() {
-			this.$el.css('left', this.$el.position().left + 10)
+			this.$el.css('left', this.$el.position().left + 10);
 		}
 
 	});
 
-	var myRectangle = new Rectangle({
-		width: 100,
-		height: 60,
-		position: {
-			x: 300,
-			y: 150
-		},
-		color: '#ff0000'
+	var models = [
+		new Rectangle({
+			width: 100,
+			height: 60,
+			position: {
+				x: 300,
+				y: 150
+			},
+			color: '#ff0000'
+		}),
+		new Rectangle({
+			width: 26,
+			height: 300,
+			position: {
+				x: 500,
+				y: 75
+			},
+			color: '#00ff00'
+		}),
+		new Rectangle({
+			width: 300,
+			height: 70,
+			position: {
+				x: 310,
+				y: 200
+			},
+			color: '#0000ff'
+		})
+	];
+
+	_(models).each(function (model){
+		$('div#canvas').append(new RectangleView({model: model}).render().el);
 	});
 
-	var myView = new RectangleView({model: myRectangle});
-
-	$('div#canvas').append(myView.render().el);
 
 })();
