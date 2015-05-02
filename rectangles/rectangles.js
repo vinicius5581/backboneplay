@@ -11,6 +11,7 @@
 		render: function(){
 			this.setDimensions();
 			this.setPosition();
+			this.setColor();
 			return this;
 		},
 
@@ -27,6 +28,10 @@
 				left: position.x,
 				top: position.y
 			});
+		},
+
+		setColor: function () {
+			this.$el.css('background-color', this.model.get('color'));
 		}
 
 	});
@@ -37,7 +42,8 @@
 		position: {
 			x: 300,
 			y: 150
-		}
+		},
+		color: '#ff0000'
 	});
 
 	var myView = new RectangleView({model: myRectangle});
